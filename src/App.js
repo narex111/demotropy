@@ -30,12 +30,14 @@ class App extends Component {
   }
 
   render(){
+    console.log(this.state, "state in App.js")
+    console.log(this.props, "props in App.js")
     return (
       <div className="App">
         <Navigation authUser={this.state.authUser}/>
         <hr/>
         <Switch>
-          <Route exact path={ROUTES.REGISTER} component={Register}></Route>
+          <Route exact path={ROUTES.REGISTER} component={Register}/>
           <Route exact path={ROUTES.LOG_IN} component={LogIn}/>
           <Route exact path={ROUTES.HOME} component={Home}/>
         </Switch>

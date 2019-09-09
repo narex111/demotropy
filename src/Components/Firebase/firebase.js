@@ -38,6 +38,19 @@ class Firebase {
 
   users = () => this.db.collection('users')
 
+  createProposal = () => this.db.collection("proposal").add({
+    title:"test1",
+    body: "test1 good"
+  })
+
+  listProposals = () => this.db.collection("proposl")
+    .onSnapshot ((snapshot)=>{
+      const proposal = snapshot.docs.map((doc)=>({
+        id: doc.id,
+        ...doc.data()
+      }))
+    })
+
 }
 
 export default Firebase
