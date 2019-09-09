@@ -11,7 +11,7 @@ const ProposalsList = (props) =>{
         const [proposal, setProposals] = useState([])
     
         useEffect(()=>{
-            props.firebase.db.collection("proposal")
+            props.firebase.db.collection("proposals")
             .onSnapshot ((snapshot)=>{
                 console.log(snapshot, "snapshot in usEffect in ProposalList function")
               const newProposal = snapshot.docs.map((doc)=>({
@@ -34,10 +34,10 @@ const ProposalsList = (props) =>{
         <ul>
             {proposals.map((pr)=>
                 <li key={pr.id}>
-                    <div>{pr.title}</div>
-                    <div>Votes For: {pr.votesFor}</div>
-                    <div>Votes Against: {pr.votesAgainst}</div>
-                    <div>{pr.body}</div>
+                    <h2>{pr.title}</h2>
+                    <h4>{pr.text}</h4>
+                    <p>Votes For: {pr.votesFor}</p>
+                    <p>Votes Against: {pr.votesAgainst}</p>
                 </li>
             )}
         </ul>

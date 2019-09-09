@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import Navigation from "./Components/Navigation"
 import Register from "./Components/Register"
 import Home from "./Components/Home"
+import CreateProposal from "./Components/CreateProposal"
 import * as ROUTES from './Constants/routes'
 import {withFirebase} from "./Components/Firebase"
 import LogIn from './Components/LogIn';
@@ -40,6 +41,7 @@ class App extends Component {
           <Route exact path={ROUTES.REGISTER} component={Register}/>
           <Route exact path={ROUTES.LOG_IN} component={LogIn}/>
           <Route exact path={ROUTES.HOME} component={Home}/>
+          <Route exact path={ROUTES.CREATEPROPOSAL} component={CreateProposal}/>
         </Switch>
       </div>
     )

@@ -30,9 +30,9 @@ const NavigationAuth = ({ authUser }) => (
     <li>
       <NavLink exact to={ROUTES.HOME}>Home</NavLink>
     </li>
-    {/* <li>
-      <NavLink exact to={ROUTES.ACCOUNT}>Account</NavLink>
-    </li> */}
+    <li>
+      <NavLink exact to={ROUTES.CREATEPROPOSAL}>Create Proposal</NavLink>
+    </li>
     <li>
       {authUser.username} <LogOut />
     </li>
