@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
+import './index.css';
+
 
 import Navigation from "./Components/Navigation"
 import Register from "./Components/Register"
 import Home from "./Components/Home"
+import Proposal from './Components/Proposal'
+import CreateProposal from "./Components/CreateProposal"
 import * as ROUTES from './Constants/routes'
 import {withFirebase} from "./Components/Firebase"
-import LogIn from './Components/LogIn';
+import LogIn from './Components/LogIn'
+
 
 
 class App extends Component {
@@ -30,18 +35,24 @@ class App extends Component {
   }
 
   render(){
+    console.log(this.state, "state in App.js")
+    console.log(this.props.firebase.db.collection("proposals"), "props in App.js")
     return (
       <div className="App">
         <Navigation authUser={this.state.authUser}/>
         <hr/>
+        <body>        
         <Switch>
-          <Route exact path={ROUTES.REGISTER} component={Register}></Route>
+          <Route exact path={ROUTES.REGISTER} component={Register}/>
           <Route exact path={ROUTES.LOG_IN} component={LogIn}/>
           <Route exact path={ROUTES.HOME} component={Home}/>
+          <Route exact path={ROUTES.CREATEPROPOSAL} component={CreateProposal}/>
+          <Route exact path={`${ROUTES.PROPOSAL}/:id`} component={Proposal}/>
         </Switch>
+        </body>
       </div>
     )
   }
 }
 
-export default withFirebase(App);
+export default withRouter(withFirebase(App));

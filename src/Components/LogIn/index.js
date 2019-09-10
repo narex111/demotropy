@@ -37,7 +37,8 @@ class LogInForm extends Component {
 
   render() {
     const { email, password, error } = this.state
-    console.log(this.props)
+    console.log(this.props, "props in login")
+    console.log(this.state, "state in login")
     return (
       <form onSubmit={this.onSubmit}>
         <input 

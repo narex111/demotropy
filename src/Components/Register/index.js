@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { withFirebase } from '../Firebase'
 import * as ROUTES from '../../Constants/routes'
 
+
 const Register = (props) => {
     return (
         <div>
@@ -52,7 +53,8 @@ class RegisterForm extends Component{
     }
 
     render(){
-        console.log(this.state)
+        console.log(this.state, "this.state in register")
+        console.log(this.props, "this.props in register")
         const {
             username,
             email,

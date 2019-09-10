@@ -38,6 +38,11 @@ class Firebase {
 
   users = () => this.db.collection('users')
 
+  createProposal = () => this.db.collection("proposal").add({
+    title:"test1",
+    body: "test1 good"
+  })
+
 }
 
 export default Firebase
