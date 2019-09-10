@@ -1,5 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import {Navbar,
+Nav,
+NavItem} from "reactstrap"
 
 import LogOut from '../LogOut'
 
@@ -7,19 +10,22 @@ import * as ROUTES from "../../Constants/routes"
 
 const Navigation = ({ authUser }) => (
   <div>
-  {authUser ? <NavigationAuth authUser={authUser}/> : <NavigationNonAuth />}
+    <Navbar color="light" light expand="md">
+
+    {authUser ? <NavigationAuth authUser={authUser}/> : <NavigationNonAuth />}
+    </Navbar>
   </div>
 )
 
 const NavigationNonAuth = () => (
-    <ul>
-      <li>
+    <Nav className="ml-auto" navbar>
+      <NavItem>
         <NavLink exact to={ROUTES.LOG_IN}>Log In</NavLink> 
-      </li>
-      <li>
+      </NavItem>
+      <NavItem>
         <NavLink exact to={ROUTES.REGISTER}>Register</NavLink>
-      </li>
-    </ul>
+      </NavItem>
+    </Nav>
 )
 
 const NavigationAuth = ({ authUser }) => (

@@ -4,7 +4,7 @@ export const REGISTER = '/register';
 export const HOME = '/home';
 export const ACCOUNT = '/account';
 export const CLASSES = "/classes";
-export const PROPOSALS = "/proposals";
+export const PROPOSAL = "/proposal";
 export const CREATEPROPOSAL = "/create_proposal";
 
 

@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react"
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 
 import Firebase, { withFirebase } from '../Firebase'
+
+import Vote from "../Vote"
 
 
 
@@ -34,10 +36,13 @@ const ProposalsList = (props) =>{
         <ul>
             {proposals.map((pr)=>
                 <li key={pr.id}>
+                    <Link to={`/proposal/${pr.id}`}>    
                     <h2>{pr.title}</h2>
-                    <h4>{pr.text}</h4>
+                    </Link>
+                    {/* <h4>{pr.text}</h4>
+                    <Vote id={pr.id}/>
                     <p>Votes For: {pr.votesFor}</p>
-                    <p>Votes Against: {pr.votesAgainst}</p>
+                    <p>Votes Against: {Math.abs(pr.votesAgainst)}</p> */}
                 </li>
             )}
         </ul>

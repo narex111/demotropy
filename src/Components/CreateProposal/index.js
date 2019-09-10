@@ -11,10 +11,11 @@ const CreateProposal = (props) => {
     const [title, setTitle] = useState("")
     const [text, setText] = useState("")
     const [confirmation, setConfirmation] = useState("")
+
+
     
     function onSubmit(e){
         e.preventDefault()
-        // console.log(props)
         props.firebase.db.
         collection("proposals").
         add({
@@ -28,7 +29,15 @@ const CreateProposal = (props) => {
             setText("")
             setConfirmation("Proposal has been created")
         })
+        .then(
+            props.history.push("proposal/")
+        )
     }
+
+    // props.firebase.db.collection("proposals")
+    // .onSnapshot((snapshot)=>{
+    //     console.log(snapshot.docs, "snapshot in CreateProposal")
+    // })
 
     return(
         <div>
