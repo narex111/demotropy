@@ -16,7 +16,9 @@ class Home extends Component {
         console.log(this.props, "props in Home")
         // this.createProposal()
         return(
-            <ProposalsList/>
+            <div>
+                <ProposalsList/>
+            </div>
         )
     }
 }

@@ -2,7 +2,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {Navbar,
 Nav,
-NavItem} from "reactstrap"
+NavItem,
+NavbarBrand,
+} from "reactstrap"
 
 import LogOut from '../LogOut'
 
@@ -10,39 +12,39 @@ import * as ROUTES from "../../Constants/routes"
 
 const Navigation = ({ authUser }) => (
   <div>
-    <Navbar color="light" light expand="md">
-
-    {authUser ? <NavigationAuth authUser={authUser}/> : <NavigationNonAuth />}
-    </Navbar>
+      {authUser ? <NavigationAuth authUser={authUser}/> : <NavigationNonAuth />}
   </div>
 )
 
 const NavigationNonAuth = () => (
-    <Nav className="ml-auto" navbar>
-      <NavItem>
-        <NavLink exact to={ROUTES.LOG_IN}>Log In</NavLink> 
+  <Navbar color="dark" light expand="md" style={{height: "80px"}}>
+    <Nav  navbar horizontal>
+
+      <NavItem style={{margin: '10px'}}>
+        <NavLink exact to={ROUTES.LOG_IN} style={{color: 'white'}}>Log In</NavLink> 
       </NavItem>
-      <NavItem>
-        <NavLink exact to={ROUTES.REGISTER}>Register</NavLink>
+      <NavItem style={{margin: '10px'}}>
+        <NavLink exact to={ROUTES.REGISTER} style={{color: 'white'}}>Register</NavLink>
       </NavItem>
-    </Nav>
+    </Nav>  
+  </Navbar>
 )
 
 const NavigationAuth = ({ authUser }) => (
-  <ul>
-    {/* <li>
-      <NavLink exact to={ROUTES.LANDING}>Landing</NavLink>
-    </li> */}
-    <li>
-      <NavLink exact to={ROUTES.HOME}>Home</NavLink>
-    </li>
-    <li>
-      <NavLink exact to={ROUTES.CREATEPROPOSAL}>Create Proposal</NavLink>
-    </li>
-    <li>
-      {authUser.username} <LogOut />
-    </li>
-  </ul>
+  <Navbar color="dark" light expand="md"style={{height: "80px"}}>
+    <Nav  navbar horizontal>
+      <NavItem style={{margin: '10px'}}>
+        <NavLink exact to={ROUTES.HOME} style={{color: 'white'}}>Home</NavLink>
+      </NavItem>
+      <NavItem style={{margin: '10px'}}>
+        <NavLink exact to={ROUTES.CREATEPROPOSAL} style={{color: 'white'}}>Create Proposal</NavLink>
+      </NavItem>
+    </Nav>
+    <Nav className="ml-auto" horizontal>
+      <NavbarBrand href="ROUTES.HOME" style={{color: 'white'}}>{authUser.username}</NavbarBrand>
+      <LogOut />
+    </Nav>
+  </Navbar>
 )
 
 export default Navigation

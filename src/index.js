@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom'
 import Firebase, {FirebaseContext} from './Components/Firebase'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
